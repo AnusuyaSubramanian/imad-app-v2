@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-'Article-one' : {
+'Article-one': {
     title : 'Article-one | Anusuya',
     heading : 'Article One',
     date : 'Feb 13 2017',
@@ -22,7 +22,7 @@ var articles = {
        </p>
     `
 },
-'Article-two' : {
+'Article-two': {
     title : 'Article-two | Anusuya',
     heading : 'Article Two',
     date : 'Feb 23 2017',
@@ -32,7 +32,7 @@ var articles = {
        </p>
     `
 },
-'Article-three' : {
+'Article-three': {
     title : 'Article-three | Anusuya',
     heading : 'Article Three',
     date : 'Feb 30 2017',
@@ -50,35 +50,34 @@ function createTemplate (data) {
     var date = data.date;
     var content = data.content;
     
-var htmlTemplate = `
-<html>
-    <head>
-        <title>
-            ${title}
-        </title>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <link href="/ui/style.css" rel="stylesheet" />   
-    </head>
-    <body>
-        <div class="container">
-            <div>
-                <a href="/">Home</a>
+    var htmlTemplate = `
+    <html>
+        <head>
+            <title>
+                ${title}
+            </title>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link href="/ui/style.css" rel="stylesheet" />   
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
             </div>
-            <h3>
-                ${heading}
-            </h3>
-            <div>
-                ${date}
-            </div>
-            <div>
-                ${content}
-            </div>
-        </div>
-    </body>
-</html>
-`
-;
-return htmlTemplate;
+        </body>
+    </html>
+    `;
+    return htmlTemplate;
 }
 
 app.get('/', function (req, res) {
